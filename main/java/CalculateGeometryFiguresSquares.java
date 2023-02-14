@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class CalculateGeometryFiguresSquares {
     public static void main(String[] args) {
         String figureName = readGeometryFigureName();
-        System.out.println("figureName = " + figureName);
-
+        int figureNumber = returnNumberOfGeometryFigure(figureName);
+        System.out.println("figureName = " + figureName + " figureNumber = " + figureNumber);
     }
 
     //метод, который считывает название фигуры
@@ -17,8 +17,41 @@ public class CalculateGeometryFiguresSquares {
     }
 
     //метод, который определяет тип фигуры
+    /**
+     * 0 - ничего
+     * 1 - треугольник
+     * 2 - круг
+     * 3 - квадрат
+     * 4 - трапеция
+     * 5 - эллипс
+     * 6 - многоугольник (более 4 углов)
+     */
+    public static int returnNumberOfGeometryFigure(String figureName) {
+        int figureNumber = 0;
+        switch (figureName) {
+            case "треугольник": return 1;
+            case "круг": return 2;
+            case "квадрат": return 3;
+            case "трапеция": return 4;
+            default:
+                System.out.println("нет такой фигуры в базе программы");
+                break;
+        }
+        return figureNumber;
+    }
 
     //методы, которые вычисляет площадь фигуры
+    //метод, вычисляющий площадь треугольника
+    public static double calculateTriangleSqure(int height, int side) {
+
+        return 0.5 * height * side;
+    }
+    //метод, вычисляющий площадь круга
+
+    //метод, вычисляющий площадь квадрата
+
+    //метод, вычисляющий площадь трапеции
+
 
     //метод, который выводит результаты вычислений
 }
