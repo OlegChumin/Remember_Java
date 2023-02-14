@@ -5,6 +5,8 @@ public class CalculateGeometryFiguresSquares {
         String figureName = readGeometryFigureName();
         int figureNumber = returnNumberOfGeometryFigure(figureName);
         System.out.println("figureName = " + figureName + " figureNumber = " + figureNumber);
+        double triangleSqure = calculateTriangleSqure();
+        System.out.println("площадь треугольника = " + triangleSqure);
     }
 
     //метод, который считывает название фигуры
@@ -42,8 +44,9 @@ public class CalculateGeometryFiguresSquares {
 
     //методы, которые вычисляет площадь фигуры
     //метод, вычисляющий площадь треугольника
-    public static double calculateTriangleSqure(int height, int side) {
-
+    public static double calculateTriangleSqure() {
+        double height = new Scanner(System.in).nextDouble();
+        double side = new Scanner(System.in).nextDouble();
         return 0.5 * height * side;
     }
     //метод, вычисляющий площадь круга
