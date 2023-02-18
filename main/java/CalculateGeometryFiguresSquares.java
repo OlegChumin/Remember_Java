@@ -4,7 +4,7 @@ public class CalculateGeometryFiguresSquares {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Програма расчета площадей геометрических фигур");
+        System.out.println("Программа расчета площадей геометрических фигур");
         selectGeometryFigure();
         System.out.println("Спасибо за использование программы.");
     }
