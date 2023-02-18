@@ -114,5 +114,4 @@ public class CalculateGeometryFiguresSquares {
         double semiAxisB = scanner.nextDouble();
         return Math.PI * semiAxisA * semiAxisB;
     }
-
 }
