@@ -101,8 +101,18 @@ public class TaskFromMarch13th {
         System.out.println();
     }
 
-    private static void getAllNumbersDividableOnThree(int[] arrayOfInt) {
-
+    private static void getMaxAndMiElement() {
+        // your code here using Arrays.sort
+        System.out.println("min element: " + "here should be min result value");
+        System.out.println("max element: " + "here should be max result value");
     }
 
+    private static int[] reverseArray(int[] array) {
+        // your code here using to reverse all array elements
+        int[] reversedArray = {};
+        return reversedArray;
+    }
+
+    private static void getAllNumbersDividableOnThree(int[] arrayOfInt) {
+    }
 }
