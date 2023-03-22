@@ -27,7 +27,7 @@ public class TaskFromMarch13th {
     public static void main(String[] args) {
         // 1 способ чтения числа из строки
         int arraySize = getIntNumberByScanner();
-        System.out.println("getIntNumberByScanner - array size: " + arraySize);
+
         int[] arrayOfInt = readAndFillIntArray(arraySize);
         printArray(arrayOfInt);
         printArray(sortingIntArray(arrayOfInt));
@@ -46,7 +46,9 @@ public class TaskFromMarch13th {
 
     private static int getIntNumberByScanner() {
         System.out.print("Pls. enter size of the array: ");
-        return SCANNER.nextInt();
+        int arraySize = SCANNER.nextInt();;
+        System.out.println("getIntNumberByScanner - array size: " + arraySize);
+        return arraySize;
     }
 
     private static int getIntNumberByBufferedReader() {
@@ -73,11 +75,10 @@ public class TaskFromMarch13th {
     }
 
     // 8 -2 90 7 -10 -> sorting -> -10 -2 7 8 90
-    private static int[] sortingIntArray(int[] arrayToSort) {
-        Arrays.sort(arrayToSort);
-        int[] sortedArray = arrayToSort;
+    private static int[] sortingIntArray(int[] array) {
+        Arrays.sort(array);
         System.out.println("Sorting array...");
-        return sortedArray;
+        return array;
     }
 
     private static int getMinIntArrayElement(int[] arrayOfInt) {
@@ -123,7 +124,9 @@ public class TaskFromMarch13th {
     private static int[] reverseArray(int[] array) {
         // your code here using to reverse all array elements
         int[] reversedArray = new int[array.length];
-        for (int i = 0; i < array.length / 2; i++) { // array[x][][][][][y] -> reversedArray [y][][][][][x]
+        // 0   1   2  3  4             0   1  2  3  4                      0   1 2 3 4 5
+        //[4][-2][12][3][7] -> sorted [-2][3][4][7][12] -> reversed array [12][7][4][3][-2]
+        for (int i = 0; i <= array.length / 2; i++) { // array[x][][][][][y] -> reversedArray [y][][][][][x]
             int temp;
             temp = array[i];
             reversedArray[i] = array[array.length - 1 - i];
