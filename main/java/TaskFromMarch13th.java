@@ -19,8 +19,10 @@ public class TaskFromMarch13th {
      * Требования: оформить программу в виде методов/функций.
      * Вывод на экран также оформить как отдельный метод/функцию.
      */
-    private final static Scanner scanner = new Scanner(System.in);
-    private final static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private final static Scanner SCANNER = new Scanner(System.in);
+    private final static BufferedReader BUFFERED_READER = new BufferedReader(new InputStreamReader(System.in));
+
+    private final static int ADDED_ELEMENT = 2;
 
     public static void main(String[] args) {
         // 1 способ чтения числа из строки
@@ -29,9 +31,13 @@ public class TaskFromMarch13th {
         int[] arrayOfInt = readAndFillIntArray(arraySize);
         printArray(arrayOfInt);
         printArray(sortingIntArray(arrayOfInt));
-        System.out.println("min element of arrayOfInt used method getMinIntArrayElement :" + getMinIntArrayElement(arrayOfInt));
-        System.out.println("max element of arrayOfInt used method  getMaxIntArrayElement" + getMaxIntArrayElement(arrayOfInt));
+        printArray(reverseArray(arrayOfInt));
+        getMaxAndMinElement(arrayOfInt);
+        addTwoToEachArrayElementAndPrint(arrayOfInt);
+        System.out.println("min element of arrayOfInt used method getMinIntArrayElement: " + getMinIntArrayElement(arrayOfInt));
+        System.out.println("max element of arrayOfInt used method  getMaxIntArrayElement: " + getMaxIntArrayElement(arrayOfInt));
         getAllEvenNumbersFromIntArray(arrayOfInt);
+        getAllNumbersDividableOnThree(arrayOfInt);
 
         // 2 способ чтения числа из строки - потокобезопасный
 //        System.out.println("getIntNumberByBufferedReader  - array size: " + getIntNumberByBufferedReader());
@@ -40,12 +46,12 @@ public class TaskFromMarch13th {
 
     private static int getIntNumberByScanner() {
         System.out.print("Pls. enter size of the array: ");
-        return scanner.nextInt();
+        return SCANNER.nextInt();
     }
 
     private static int getIntNumberByBufferedReader() {
         try {
-            return Integer.parseInt(bufferedReader.readLine());
+            return Integer.parseInt(BUFFERED_READER.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +61,7 @@ public class TaskFromMarch13th {
         int[] arrayOfInt = new int[arraySize];
         System.out.println("Pls. enter array element - should be Integer numbers only!");
         for (int i = 0; i < arrayOfInt.length; i++) {
-            arrayOfInt[i] = scanner.nextInt();
+            arrayOfInt[i] = SCANNER.nextInt();
         }
         return arrayOfInt;
     }
@@ -107,20 +113,39 @@ public class TaskFromMarch13th {
     }
 
 
-    private static void getMaxAndMiElement(int[] array) {
+    private static void getMaxAndMinElement(int[] array) {
         // your code here using Arrays.sort
-        // Put your code here
+        Arrays.sort(array); // double sort in order to be sure that array is sorted
+        System.out.println("min element from given array is: " + array[0]);
+        System.out.println("max element from given array is: " + array[array.length - 1]);
     }
 
     private static int[] reverseArray(int[] array) {
         // your code here using to reverse all array elements
-        int[] reversedArray = {};
-        //....
+        int[] reversedArray = new int[array.length];
+        for (int i = 0; i < array.length / 2; i++) { // array[x][][][][][y] -> reversedArray [y][][][][][x]
+            int temp;
+            temp = array[i];
+            reversedArray[i] = array[array.length-1 - i];
+            reversedArray[reversedArray.length - 1 - i] = temp;
+        }
         return reversedArray;
     }
 
+    private static void addTwoToEachArrayElementAndPrint(int[] arrayToProcess) {
+        for (int element: arrayToProcess) {
+            element += ADDED_ELEMENT;
+        }
+        System.out.println("Add 2 to all given array elements: " + Arrays.toString(arrayToProcess));
+    }
+
     private static void getAllNumbersDividableOnThree(int[] arrayOfInt) {
-        // Put your code here
-        //...
+        System.out.println("Getting all even numbers % 3 == 0) from given array...");
+        for (int i = 0; i < arrayOfInt.length; i++) {
+            if (arrayOfInt[i] % 3 == 0) {
+                System.out.print(arrayOfInt[i] + " ");
+            }
+        }
+        System.out.println();
     }
 }
