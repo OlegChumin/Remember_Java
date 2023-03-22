@@ -126,14 +126,14 @@ public class TaskFromMarch13th {
         for (int i = 0; i < array.length / 2; i++) { // array[x][][][][][y] -> reversedArray [y][][][][][x]
             int temp;
             temp = array[i];
-            reversedArray[i] = array[array.length-1 - i];
+            reversedArray[i] = array[array.length - 1 - i];
             reversedArray[reversedArray.length - 1 - i] = temp;
         }
         return reversedArray;
     }
 
     private static void addTwoToEachArrayElementAndPrint(int[] arrayToProcess) {
-        for (int element: arrayToProcess) {
+        for (int element : arrayToProcess) {
             element += ADDED_ELEMENT;
         }
         System.out.println("Add 2 to all given array elements: " + Arrays.toString(arrayToProcess));
