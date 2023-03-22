@@ -125,7 +125,7 @@ public class TaskFromMarch13th_Oleg_Solution {
         // your code here using to reverse all array elements
         int[] reversedArray = new int[array.length]; // создаем новый массив элементы которого
         // будут в обратном порядке от исходного
-        for (int i = 0; i < array.length / 2; i++) { // итерируемся до середины массива (если итерироваться по всему
+        for (int i = 0; i <= array.length / 2; i++) { // итерируемся до середины массива (если итерироваться по всему
             // массиву тоисходное состояние будет возвращено
             int temp;
             temp = array[i]; // записываем значение из ящеек с начала массива array во временную переменную
